@@ -4,7 +4,7 @@ import 'package:news/style/appcolors.dart';
 import 'package:news/ui/category_details/category_details.dart';
 import 'package:news/ui/category_details/category_fragment.dart';
 import 'package:news/ui/search/searchScreen.dart';
-import 'package:news/ui/home_drawer.dart';
+import 'package:news/ui/drawer/home_drawer.dart';
 
 import '../style/appstyle.dart';
 
@@ -40,6 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       drawer: Drawer(
+        surfaceTintColor: Theme.of(context).primaryColor,
         backgroundColor: AppColors.blackColor,
         child: HomeDrawer(goToHome: goToHome),),
       body:selectedCategory==null ?

@@ -60,8 +60,13 @@ class _SearchScreenState extends State<SearchScreen> {
           Padding(
             padding: const EdgeInsets.only(top:  30,left: 16,right: 16),
             child: TextField(
+              style:
+                  AppStyles.medium20White.copyWith(color: Theme.of(context).primaryColor)
+              ,
               controller: searchController,
               decoration: InputDecoration(
+
+
                 hintText: 'Search',
                 hintStyle: AppStyles.medium16Grey.copyWith(color: Theme.of(context).primaryColor),
                 border: OutlineInputBorder(),

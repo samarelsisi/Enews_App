@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:news/models/categorymodel.dart';
 import 'package:news/style/appcolors.dart';
 import 'package:news/style/appstyle.dart';
+import 'package:provider/provider.dart';
+
+import '../../providers/app_theme_provider.dart';
 
 class CategoryFragment extends StatelessWidget {
 static const String routeName="category_fregment";
@@ -10,7 +13,9 @@ Function onClickViewAll;
 
   @override
   Widget build(BuildContext context) {
-    var categoryList=CategoryModel.getCategoryList();
+    var themeProvider = Provider.of<AppThemeProvider>(context);
+
+    var categoryList=themeProvider.appTheme==ThemeMode.light?CategoryModel.getCategoryListlight():CategoryModel.getCategoryListdark();
 
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
