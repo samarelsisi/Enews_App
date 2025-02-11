@@ -2,19 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:news/models/SourceResponse.dart';
 import 'package:news/ui/category_details/sourcename.dart';
 import 'package:news/ui/news/news_widget.dart';
-
 class SourceTab extends StatefulWidget {
   final List<Sources> sourceList;
-
   const SourceTab({required this.sourceList, super.key});
-
   @override
   State<SourceTab> createState() => _SourceTabState();
 }
-
 class _SourceTabState extends State<SourceTab> {
   int selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -39,7 +34,6 @@ class _SourceTabState extends State<SourceTab> {
                 source: source,
               );
             }).toList(),
-
           ),
         ),
         SizedBox(

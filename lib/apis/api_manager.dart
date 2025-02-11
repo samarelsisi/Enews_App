@@ -7,9 +7,10 @@ import 'package:news/models/NewsDataResponse.dart';
 import 'package:news/models/SourceResponse.dart';
 
 class ApiManager{
-  static Future<SourceResponse?> getSources()async{
+  static Future<SourceResponse?> getSources(String categoryId)async{
     Uri url=Uri.https(ApiConstant.baseUrl,EndPoints.sourceEndPoint ,{
-      'apiKey':ApiConstant.apiKey
+      'apiKey':ApiConstant.apiKey,
+      'category':categoryId
     });
     var response=await  http.get(url);
     try{
@@ -27,7 +28,7 @@ class ApiManager{
     });
    var response=await http.get(url);
    try{
-print(sourceId);
+    print(sourceId);
      return NewsDataResponse.fromJson(jsonDecode(response.body));
 
    }
@@ -35,4 +36,20 @@ print(sourceId);
      throw e;
    }
   }
+  static Future<List<Articles>> fetchCategoryArticles(String category) async {
+  Uri url = Uri.https(ApiConstant.baseUrl,EndPoints.headEndPoint, {
+  'apiKey': ApiConstant.apiKey, // Replace with your API key
+  'category': category,
+  });
+
+  var response = await http.get(url);
+  if (response.statusCode == 200) {
+  var data = jsonDecode(response.body);
+  return (data['articles'] as List).map((e) => Articles.fromJson(e)).toList();
+  } else {
+  throw Exception('Failed to load articles for category: $category');
+  }
+  }
+
+
 }
