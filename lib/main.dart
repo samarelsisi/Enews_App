@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:news/style/apptheme.dart';
 import 'package:news/ui/category_details/category_details.dart';
+import 'package:news/ui/search/searchScreen.dart';
 import 'package:news/ui/home.dart';
 
 void main() {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         initialRoute: HomeScreen.routeName,
       routes:{
         HomeScreen.routeName:(context)=>HomeScreen(),
-        CategoryDetails.routeName:(context)=>CategoryDetails()
+
       },
       theme: AppThemes.lightTheme,
       darkTheme: AppThemes.darkTheme,
